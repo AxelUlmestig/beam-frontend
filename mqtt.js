@@ -1,8 +1,8 @@
 var host = "broker.mqttdashboard.com";
 var port = 8000;
 
-var outputTopic = "topic1";
-var inputTopic = "topic2";
+var outputTopic = "beam:publish";
+var inputTopic = "beam:listen";
 
 // Create a client instance
 client = new Paho.MQTT.Client(host, Number(port), "clientId");
