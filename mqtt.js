@@ -1,8 +1,7 @@
-var host = "broker.mqttdashboard.com";
-var port = 8000;
-
-var outputTopic = "beam:publish";
-var inputTopic = "beam:listen";
+var host = Constants.HOST;
+var port = Constants.PORT;
+var outputTopic = Constants.OUTPUT_TOPIC;
+var inputTopic = Constants.INPUT_TOPIC;
 
 // Create a client instance
 client = new Paho.MQTT.Client(host, Number(port), "clientId");
@@ -29,7 +28,12 @@ function onMessageArrived(message) {
 }
 
 function sendCoordsMqtt(x, y) {
-        message = new Paho.MQTT.Message(x + " " + y);
+        var message = JSON.stringify({
+                lat: x,
+                lon: y
+        });
+        message = new Paho.MQTT.Message(message);
+        //message = new Paho.MQTT.Message(x + " " + y);
         message.destinationName = outputTopic;
         client.send(message);
 }
