@@ -4,7 +4,8 @@ var outputTopic = Constants.OUTPUT_TOPIC;
 var inputTopic = Constants.INPUT_TOPIC;
 
 // Create a client instance
-client = new Paho.MQTT.Client(host, Number(port), "clientId");
+var id = Math.random() * Math.pow(10, 17);
+client = new Paho.MQTT.Client(host, Number(port), id.toString());
 
 // set callback handlers
 client.onConnectionLost = onConnectionLost;
