@@ -9,6 +9,6 @@ app.get('/', function(req, res) {
         res.render('index.html');
 });
 
-app.listen(1337, 'localhost', function() {
+app.listen(1337, function() {
         console.log("server starting");
 });
