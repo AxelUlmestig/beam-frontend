@@ -7,4 +7,4 @@ app.engine('html', require('ejs').renderFile);
 
 app.get('/', (req, res) => res.render('index.html'));
 
-app.listen(1337, () => console.log("server starting"));
+app.listen(80, () => console.log("server starting"));
